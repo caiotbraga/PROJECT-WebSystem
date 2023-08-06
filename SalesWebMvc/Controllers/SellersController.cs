@@ -22,13 +22,13 @@ namespace SalesWebMvc.Controllers
             return View(list);
         }
 
+        
         public IActionResult Create()
         {
             return View();
         }
 
-
-        [HttpPost]
+        [HttpPost] 
         [ValidateAntiForgeryToken]
         public IActionResult Create(Seller seller)
         {
