@@ -20,7 +20,6 @@ namespace SalesWebMvc.Controllers
             var list = SellerService.FindAll();
             return View(list);
         }
-
         
         public IActionResult Create()
         {
@@ -34,6 +33,28 @@ namespace SalesWebMvc.Controllers
         public IActionResult Create(Seller seller)
         {
             SellerService.Insert(seller);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+            var obj = SellerService.FindByID(id.Value);
+            if(obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            SellerService.Remove(id);
             return RedirectToAction(nameof(Index));
         }
     }
