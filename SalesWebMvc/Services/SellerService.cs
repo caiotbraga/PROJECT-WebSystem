@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using SalesWebMvc.Data;
 using SalesWebMvc.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace SalesWebMvc.Services
 {
@@ -29,7 +30,7 @@ namespace SalesWebMvc.Services
 
         public Seller FindByID(int id)
         {
-            return context.Seller.FirstOrDefault(s => s.Id == id);
+            return context.Seller.Include(obj => obj.Department).FirstOrDefault(s => s.Id == id);
         }
 
         public void Remove(int id)

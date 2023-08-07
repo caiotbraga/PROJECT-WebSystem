@@ -28,26 +28,40 @@ namespace SalesWebMvc.Controllers
             return View(viewModel);
         }
 
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var obj = SellerService.FindByID(id.Value);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+
+        public IActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var obj = SellerService.FindByID(id.Value);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+
         [HttpPost] 
         [ValidateAntiForgeryToken]
         public IActionResult Create(Seller seller)
         {
             SellerService.Insert(seller);
             return RedirectToAction(nameof(Index));
-        }
-
-        public IActionResult Delete(int? id)
-        {
-            if(id == null)
-            {
-                return NotFound();
-            }
-            var obj = SellerService.FindByID(id.Value);
-            if(obj == null)
-            {
-                return NotFound();
-            }
-            return View(obj);
         }
 
         [HttpPost]
