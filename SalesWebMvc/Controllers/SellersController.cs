@@ -2,6 +2,8 @@
 using SalesWebMvc.Models;
 using SalesWebMvc.Services;
 using SalesWebMvc.Models.ViewModels;
+using System.Collections.Generic;
+using SalesWebMvc.Services.Exceptions;
 
 namespace SalesWebMvc.Controllers
 {
@@ -20,7 +22,7 @@ namespace SalesWebMvc.Controllers
             var list = SellerService.FindAll();
             return View(list);
         }
-        
+
         public IActionResult Create()
         {
             var departments = DepartmentService.FindAll();
@@ -56,7 +58,23 @@ namespace SalesWebMvc.Controllers
             return View(obj);
         }
 
-        [HttpPost] 
+        public IActionResult Edit(int? id) // ? -> used to check at execution time
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var obj = SellerService.FindByID(id.Value);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            List<Department> departments = DepartmentService.FindAll();
+            SellerFormViewModel viewModel = new SellerFormViewModel { Seller = obj, Departments = departments };
+            return View(viewModel);
+        }
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Seller seller)
         {
@@ -70,6 +88,29 @@ namespace SalesWebMvc.Controllers
         {
             SellerService.Remove(id);
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id, Seller seller)
+        {
+            if (id != seller.Id)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                SellerService.Update(seller);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (NotFoundException)
+            {
+                return NotFound();
+            }
+            catch (DbConcurrencyException)
+            {
+                return BadRequest();
+            }
         }
     }
 }

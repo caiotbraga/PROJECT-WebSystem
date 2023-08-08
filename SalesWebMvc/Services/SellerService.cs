@@ -52,10 +52,11 @@ namespace SalesWebMvc.Services
             {
                 context.Update(obj);
                 context.SaveChanges();
-            }catch(DbUpdateConcurrencyException e)
+            }catch(DbUpdateConcurrencyException e) //catching a data acess exception and throwing a service exception 
             {
                 throw new DbConcurrencyException(e.Message);
             }
         }
+
     }
 }
