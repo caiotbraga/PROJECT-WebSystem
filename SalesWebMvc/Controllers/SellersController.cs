@@ -75,11 +75,11 @@ namespace SalesWebMvc.Controllers
             return View(viewModel);
         }
 
-        public IActionResult Error(string msg)
+        public IActionResult Error(string message)
         {
             var viewModel = new ErrorViewModel
             {
-                Message = msg,
+                Message = message,
                 RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
             };
             return View(viewModel);
