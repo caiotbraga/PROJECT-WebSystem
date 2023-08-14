@@ -18,32 +18,33 @@ namespace SalesWebMvc.Services
             context = c;
         }
 
-        public List<Seller> FindAll()
+        public async Task<List<Seller>> FindAllAsync()
         {
-            return context.Seller.ToList();
+            return await context.Seller.ToListAsync();
         }
 
-        public void Insert(Seller s)
+        public async Task InsertAsync(Seller s)
         {
             context.Add(s);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
 
-        public Seller FindByID(int id)
+        public async Task<Seller> FindByIDAsync(int id)
         {
-            return context.Seller.Include(obj => obj.Department).FirstOrDefault(s => s.Id == id);
+            return await context.Seller.Include(obj => obj.Department).FirstOrDefaultAsync(s => s.Id == id);
         }
 
-        public void Remove(int id)
+        public async Task RemoveAsync(int id)
         {
-            var seller = context.Seller.Find(id);
+            var seller = await context.Seller.FindAsync(id);
             context.Seller.Remove(seller);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
 
-        public void Update(Seller obj)
+        public async Task UpdateAsync(Seller obj)
         {
-            if(!context.Seller.Any(x => x.Id == obj.Id))
+            bool hasAny = await context.Seller.AnyAsync(x => x.Id == obj.Id);
+            if (!hasAny)
             {
                 throw new NotFoundException("Id not found!");
             }
@@ -51,7 +52,7 @@ namespace SalesWebMvc.Services
             try //need try first cuz when you update a db can have some exceptions that need be trated
             {
                 context.Update(obj);
-                context.SaveChanges();
+                await context.SaveChangesAsync();
             }catch(DbUpdateConcurrencyException e) //catching a data acess exception and throwing a service exception 
             {
                 throw new DbConcurrencyException(e.Message);
