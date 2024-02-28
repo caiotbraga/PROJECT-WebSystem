@@ -1,3 +1,15 @@
+# Online Sales Management System
+
+The Online Sales Management System is a web application designed to track sales records and manage employees in an online sales environment. This system allows users to register employees, monitor their sales performance, and organize them into specific departments.
+
+## Key Features
+- **Employee Management:** Register and manage employees, including their personal information and sales performance.
+- **Sales Tracking:** Record and monitor sales transactions, including the date of sale, amount, and status.
+- **Department Organization:** Group employees into departments to streamline management and reporting.
+- **Data Analysis:** Analyze sales data to gain insights into performance and identify trends.
+
+This system provides a comprehensive solution for businesses engaged in online sales, offering tools to effectively manage personnel and track sales performance.
+
 # 📝 **Sales Web MVC Project (BACKEND DOCUMENTATION)** 
 
 ## Controllers
