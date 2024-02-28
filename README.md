@@ -12,15 +12,14 @@ This system provides a comprehensive solution for businesses engaged in online s
 
 <h2 align="center">💻Technologies useds</h2>
 <p align="center">
-  <img src="https://img.shields.io/badge/C%23-purple?logo=c-sharp&logoColor=white&labelColor=2d3133" alt="C# Badge">
-   <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">
-     </a>
+  <img src="https://img.shields.io/badge/C%23-purple?logo=c-sharp&logoColor=white&labelColor=421e6b" alt="C# Badge">
+   <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank"></a>
   <img src="https://img.shields.io/badge/ASP.NET_Core-3.1-purple?logo=.net&logoColor=white&labelColor=purple" alt="ASP.NET Core 3.1 Badge">
   <img src="https://img.shields.io/badge/Razor_Engine-blue?logo=.net&logoColor=white&labelColor=blue" >
 
 </p>
 
-# 📝 **Sales Web MVC Project (BACKEND DOCUMENTATION)** 
+<h1 align="center">📝 Sales Web MVC Project (BACKEND DOCUMENTATION)</h1>
 
 ## Controllers
 
@@ -164,7 +163,8 @@ The Program class contains the entry point for the application.
 
 ---
 
-# 📝 **Sales Web MVC Project (FRONTEND DOCUMENTATION)** 
+<h1 align="center">📝 Sales Web MVC Project (FRONTEND DOCUMENTATION)</h1>
+
 
 This documentation provides an overview of the frontend code structure and functionality of the Sales Web MVC application. Below are the main sections detailing each view along with their purpose and functionality.
 
