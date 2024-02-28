@@ -15,6 +15,7 @@ This system provides a comprehensive solution for businesses engaged in online s
   <a href="https://learn.microsoft.com/pt-br/dotnet/csharp" target="blank"><img src="https://img.shields.io/badge/C%23-purple?logo=c-sharp&logoColor=white&labelColor=421e6b" alt="C# Badge"></a>
 <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank"><img src="https://img.shields.io/badge/ASP.NET_Core-3.1-grey?logo=.net&logoColor=white&labelColor=purple" alt="ASP.NET Core 3.1 Badge"></a>
 <a href="https://docs.microsoft.com/aspnet/core/razor-pages/" target="_blank"><img src="https://img.shields.io/badge/Razor_Engine-blue?logo=.net&logoColor=white&labelColor=blue" alt="Razor Engine Badge"></a>
+<a href="https://www.mysql.com/" target="_blank"><img src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white" alt="MySQL Badge"></a>
 </p>
 
 <h1 align="center">📝 Sales Web MVC Project (BACKEND DOCUMENTATION)</h1>
